@@ -1,53 +1,22 @@
 var refresh_token = "AQDeMRqSfvEVCt3nXhCA2QGRAitD1BA80_C6Ux8DtUpKHWnCpmqpW9an_bOKSw1GqNA-mK4SNIZyo-4FOCiQyEV1orVBO_h7hiv2H7OgTFeRNqf6sUUD0NF-089J7dopIPo";
-var access_token = "BQAiVUMtVoP5mmWHJPYq0x_bmHxhb2zT2aa6g0oRLrPv1ORGADD33G9XmsPpxL-3wlzqwOO_XJbSkZUU61GBl8bmWqK_gQnPOXuOj3rVnuqLWIEqVZtyn4h0uBdW3PrcPIqL5REk9FDdtbtfsDMV9-LWeArLEd8qZg0-I5ENkt3f4Xnw9Q";
+var access_token = localStorage.getItem("token");
 client_id = "71977005b969429484d342d60ab7b350";
 client_secret = "c196408efb0b4d1784e6d9294c3e08d2";
 
-// use refrsh token to get new access token
-document.getElementById("refresh").addEventListener("click", refreshToken);
-
-function refreshToken() {
-    {
-        dataForAPI = {
-            grant_type: 'refresh_token',
-            refresh_token: refresh_token
-
-        }
-        console.log("inside refresh")
-
-        $.ajax({
-            headers: { 'Authorization': 'Basic ' + window.btoa(client_id + ':' + client_secret) },
-            url: "https://accounts.spotify.com/api/token",
-            data: dataForAPI,
-            method: "POST",
-            success: function (data, status, xhr) {
-                console.log(data.access_token);
-                access_token = data.access_token;
-            },
-            error: function (xhr, status, err) {
-                console.log("error");
-            },
-        });
-
-    }
-}
-
-
-
-
-
 document.getElementById("searchBtn").addEventListener("click", getList)
-
-
-
 
 function getList() {
 
+    console.log("insdide getList")
 
     var input = document.querySelector("input").value;
 
     if (input.length > 0) {
-        refreshToken();
+
+        // refreshToken();
+
+        // console.log("AccesToken after refreshToken", access_token)
+
         $.ajax({
             headers: {
                 Authorization: "Bearer " + access_token,
@@ -60,11 +29,11 @@ function getList() {
                 display(data);
             },
             error: function (xhr, status, err) {
-                console.log("error");
+                console.log("error", access_token);
                 alert("Error, please refresh token!")
                 document.getElementsByClassName("content-parent")[0].innerHTML = '  <div class="card"><div class="card-body">Results will appear here!<br><hr>         <div><button class="btn btn-primary hide" id="refresh">Refresh Token!</button></div></div></div>';
                 document.getElementById("refresh").className = "btn btn-primary";
-                refreshToken();
+
             },
         })
     }
@@ -72,15 +41,6 @@ function getList() {
         alert("Please enter something!")
 
 }
-
-
-
-
-
-
-
-
-
 
 function display(data) {
 
@@ -99,4 +59,30 @@ function display(data) {
         $(".content").append($newstr);
     }
 
+}
+
+function refreshToken() {
+    {
+        dataForAPI = {
+            grant_type: 'refresh_token',
+            refresh_token: refresh_token
+
+        }
+        console.log("inside refresh")
+
+        $.ajax({
+            headers: { 'Authorization': 'Basic ' + window.btoa(client_id + ':' + client_secret) },
+            url: "https://accounts.spotify.com/api/token",
+            data: dataForAPI,
+            method: "POST",
+            success: function (data, status, xhr) {
+                console.log(data.access_token, " -> new token");
+                localStorage.setItem("token", data.access_token);
+            },
+            error: function (xhr, status, err) {
+                console.log("error");
+            },
+        });
+
+    }
 }
