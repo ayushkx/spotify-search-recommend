@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Recommendation</title>
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- endbuild -->
+
+</head>
+
+<body>
+    <header class="container">
+        <div class="row justify-content-center m-4">
+
+            <div class="col-12 ">
+
+                <div style="border: 1px ridge;">
+                    <div class="card-body row  align-items-center">
+                        <div class="col-auto">
+                            <i class="fa fa-search"></i>
+                        </div>
+
+                        <div class="col">
+                            <input class="form-control form-control-lg form-control-borderless " id="searchBar"
+                                type="search" placeholder="Search songs with keywords">
+                        </div>
+
+                        <div class="col-auto">
+                            <button class="btn btn-success" id="searchBtn">Go!</button>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+
+
+
+
+    <div class="container content-parent">
+
+        <div class="card">
+            <div class="card-body">
+                Results will appear here!
+                <br>
+                <hr>
+
+                <div>
+                    <button class="btn btn-primary hide" id="refresh">Refresh Token!</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+    <!-- build:js js/main.js -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- endbuild -->
+
+</body>
+
+</html>
