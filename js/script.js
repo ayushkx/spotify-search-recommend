@@ -4,6 +4,12 @@ client_id = "71977005b969429484d342d60ab7b350";
 client_secret = "c196408efb0b4d1784e6d9294c3e08d2";
 
 document.getElementById("searchBtn").addEventListener("click", getList)
+document.getElementById("searchBar").addEventListener("keyup", handleKey)
+
+function handleKey(e) {
+    if (e.which === 13)
+        getList();
+}
 
 function getList() {
 
