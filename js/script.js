@@ -81,7 +81,7 @@ function refreshToken() {
             success: function (data, status, xhr) {
                 console.log(data.access_token, " -> new token");
                 localStorage.setItem("token", data.access_token);
-                document.getElementsByClassName("content-parent")[0].innerHTML = '  <div class="card"><div class="card-body">Results will appear here! Search now, token refreshed!<br><hr>         <div><button class="btn btn-primary hide" id="refresh">Refresh Token!</button></div></div></div>';
+                // document.getElementsByClassName("content-parent")[0].innerHTML = '  <div class="card"><div class="card-body">Results will appear here! Search now, token refreshed!<br><hr>         <div><button class="btn btn-primary hide" id="refresh">Refresh Token!</button></div></div></div>';
 
 
             },
