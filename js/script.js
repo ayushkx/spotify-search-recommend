@@ -13,7 +13,7 @@ function getList() {
 
     if (input.length > 0) {
 
-        refreshToken();
+        // refreshToken();
 
         // console.log("AccesToken after refreshToken", access_token)
 
@@ -26,13 +26,15 @@ function getList() {
             success: function (data, status, xhr) {
                 console.log(data);
 
-                display(data);
+                if (data.tracks.items.length > 0) {
+                    display(data);
+                }
+                else
+                    alert("No result found!")
             },
             error: function (xhr, status, err) {
                 console.log("error", access_token);
-                alert("Error, please refresh token!")
-
-                document.getElementById("refresh").className = "btn btn-primary";
+                alert("Some error occurred, try again after sometime!")
 
             },
         })
@@ -60,9 +62,6 @@ function display(data) {
     }
 
 }
-
-
-document.getElementById("refresh").addEventListener("click", refreshToken);
 
 function refreshToken() {
     {
