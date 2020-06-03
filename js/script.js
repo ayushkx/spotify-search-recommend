@@ -31,7 +31,7 @@ function getList() {
             error: function (xhr, status, err) {
                 console.log("error", access_token);
                 alert("Error, please refresh token!")
-                document.getElementsByClassName("content-parent")[0].innerHTML = '  <div class="card"><div class="card-body">Results will appear here!<br><hr>         <div><button class="btn btn-primary hide" id="refresh">Refresh Token!</button></div></div></div>';
+
                 document.getElementById("refresh").className = "btn btn-primary";
 
             },
