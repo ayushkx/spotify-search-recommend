@@ -13,7 +13,7 @@ function getList() {
 
     if (input.length > 0) {
 
-        // refreshToken();
+        refreshToken();
 
         // console.log("AccesToken after refreshToken", access_token)
 
