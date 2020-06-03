@@ -60,7 +60,7 @@ function display(data) {
     for (var i = 0; i < data.tracks.items.length; i++) {
         console.log(data.tracks.items[0].album.images[0].url)
 
-        var $newstr = $('<div class="col-md-4 mb-2 mt-2"><div class="card rounded"><div class="card-image"><img class="img-fluid" src="' + data.tracks.items[i].album.images[0].url + '" alt="Alternate Text" /></div><div class="card-image-overlay m-auto"><span class="card-detail-badge">' + data.tracks.items[i].artists[0].name + '</span><span class="card-detail-badge">' + data.tracks.items[i].album.release_date + '</span></div><div class="card-body text-center"><a class="" href="' + data.tracks.items[i].external_urls.spotify + '" style="text-decoration: none;"><i class="fa fa-play-circle "></i> ' + data.tracks.items[i].name + '</a></div></div></div>');
+        var $newstr = $('<div class="col-6 col-md-4 mb-2 mt-2"><div class="card rounded"><div class="card-image"><img class="img-fluid" src="' + data.tracks.items[i].album.images[0].url + '" alt="Alternate Text" /></div><div class="card-image-overlay m-auto"><span class="card-detail-badge" style="display: table; margin: 4px auto;">' + data.tracks.items[i].artists[0].name + '</span><span class="card-detail-badge" style="display: table; margin: 4px auto;">' + data.tracks.items[i].album.release_date + '</span></div><div class="card-body text-center"><a class="" href="' + data.tracks.items[i].external_urls.spotify + '" style="text-decoration: none;"><i class="fa fa-play-circle "></i> ' + data.tracks.items[i].name + '</a></div></div></div>');
 
 
 
