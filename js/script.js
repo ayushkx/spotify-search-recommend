@@ -1,5 +1,5 @@
 var refresh_token = "AQDeMRqSfvEVCt3nXhCA2QGRAitD1BA80_C6Ux8DtUpKHWnCpmqpW9an_bOKSw1GqNA-mK4SNIZyo-4FOCiQyEV1orVBO_h7hiv2H7OgTFeRNqf6sUUD0NF-089J7dopIPo";
-var access_token = localStorage.getItem("token");
+// var access_token = localStorage.getItem("token");
 client_id = "71977005b969429484d342d60ab7b350";
 client_secret = "c196408efb0b4d1784e6d9294c3e08d2";
 
@@ -19,7 +19,7 @@ function getList() {
 
         $.ajax({
             headers: {
-                Authorization: "Bearer " + access_token,
+                Authorization: "Bearer " + localStorage.getItem("token"),
             },
             url: "https://api.spotify.com/v1/search?q=" + input + "&type=track&limit=50",
             method: "GET",
