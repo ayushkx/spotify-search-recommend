@@ -218,3 +218,53 @@ function displayAlbum() {
         },
     })
 }
+
+timeout_var = null;
+var k = 0;
+function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i = 0, delay_ms = 120) {
+    if (!i) {
+        if (placeholder) {
+            document.querySelector(selector_target).placeholder = "";
+        }
+        else {
+            document.querySelector(selector_target).innerHTML = "";
+        }
+    }
+
+    txt = text_list[text_list_i];
+
+    if (i < txt.length) {
+        if (placeholder) {
+            document.querySelector(selector_target).placeholder += txt.charAt(i);
+        }
+        else {
+            document.querySelector(selector_target).innerHTML += txt.charAt(i);
+        }
+        i++;
+        setTimeout(typeWriter, delay_ms, selector_target, text_list, placeholder, i, text_list_i);
+    }
+    else {
+
+        text_list_i++;
+        console.log(text_list_i, i)
+        k++;
+        if (typeof text_list[text_list_i] === "undefined") {
+
+
+            return
+        }
+        else {
+            i = 0;
+            setTimeout(typeWriter, (delay_ms * 3), selector_target, text_list, placeholder, i, text_list_i);
+        }
+    }
+}
+
+text_list = [
+    "drake",
+    "beatles",
+    "hotel california",
+    "Search track/album with keywords!"
+];
+
+return_value = typeWriter("#searchBar", text_list, true);
