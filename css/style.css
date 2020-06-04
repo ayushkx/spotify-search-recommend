@@ -114,6 +114,7 @@ body {
       color:#fff;
       background:#272e38;
       border-radius:0;
+      font-size: small;
   }
   
   nav > div a.nav-item.nav-link.active:after
@@ -143,6 +144,7 @@ body {
       color:#fff!important;
       border-radius:0!important;
       transition:background 0.20s linear;
+      font-size: small;
   }
 
   .btn-success{
@@ -172,4 +174,10 @@ body {
     align-items: center;
     min-height: 80px;
     border: 3px solid green; 
+  }
+  @media (max-width: 767px) {
+    .nav-tabs.nav-justified > div {
+      float: left;
+      width: 50%;
+    }
   }
