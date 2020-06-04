@@ -114,7 +114,7 @@ body {
       color:#fff;
       background:#272e38;
       border-radius:0;
-      font-size: small;
+      
   }
   
   nav > div a.nav-item.nav-link.active:after
@@ -144,7 +144,7 @@ body {
       color:#fff!important;
       border-radius:0!important;
       transition:background 0.20s linear;
-      font-size: small;
+      
   }
 
   .btn-success{
