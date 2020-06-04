@@ -42,7 +42,7 @@ body {
 
 #ads .card:hover {
             background: #fff;
-            box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+            box-shadow: 12px 15px 20px 0px rgb(29,185,84,0.5);
             border-radius: 4px;
             transition: all 0.3s ease;
         }
@@ -173,11 +173,19 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 80px;
-    border: 3px solid green; 
+    /* border: 3px solid green;  */
   }
   @media (max-width: 767px) {
     .nav-tabs.nav-justified > div {
       float: left;
       width: 50%;
     }
+  }
+
+  .card.rounded{
+    border: 3px solid #1DB954 ;
+  }
+
+  .img-fluid{
+  width: 333.33px;
   }

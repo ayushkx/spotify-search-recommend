@@ -148,20 +148,22 @@ function displayPlaylist() {
         url: "https://api.spotify.com/v1/browse/featured-playlists?country=IN&timestamp=" + time + "&limit=50",
         method: "GET",
         success: function (data, status, xhr) {
-            // console.log(data);
+            console.log(data);
 
             if (data.playlists.items.length > 0) {
                 document.getElementById("featured-playlist").innerHTML = ' <div class="row content playlists" id="ads"></div>';
 
 
-                for (var i = 0; i < data.playlists.items.length; i++) {
+                for (var x = 0; x < data.playlists.items.length; x++) {
+
+                    setTimeout(function (i) {
+
+                        var $newstr = $('<div class="col-6 col-md-4 mb-2 mt-2"><div class="card rounded"><div class="card-image"><img class="img-fluid" src="' + data.playlists.items[i].images[0].url + '" alt="Alternate Text" /></div><div class="card-image-overlay m-auto"><span class="card-detail-badge" style="display: table; margin: 4px auto;">' + data.playlists.items[i].tracks.total + ' tracks</span></div><div class="card-body text-center"><a class="" href="' + data.playlists.items[i].external_urls.spotify + '" style="text-decoration: none;" target="_blank"><i class="fa fa-play-circle "></i> ' + data.playlists.items[i].name + '</a></div></div></div>');
 
 
-                    var $newstr = $('<div class="col-6 col-md-4 mb-2 mt-2"><div class="card rounded"><div class="card-image"><img class="img-fluid" src="' + data.playlists.items[i].images[0].url + '" alt="Alternate Text" /></div><div class="card-image-overlay m-auto"><span class="card-detail-badge" style="display: table; margin: 4px auto;">' + data.playlists.items[i].tracks.total + ' tracks</span></div><div class="card-body text-center"><a class="" href="' + data.playlists.items[i].external_urls.spotify + '" style="text-decoration: none;" target="_blank"><i class="fa fa-play-circle "></i> ' + data.playlists.items[i].name + '</a></div></div></div>');
 
-
-
-                    $(".playlists").append($newstr);
+                        $(".playlists").append($newstr);
+                    }, x * 200, x)
                 }
 
             }
@@ -192,16 +194,16 @@ function displayAlbum() {
             if (data.albums.items.length > 0) {
 
                 document.getElementById("latest-album").innerHTML = ' <div class="row content albums" id="ads"></div>';
+                // console.log(data, "outside for")
 
+                for (var x = 0; x < data.albums.items.length; x++) {
 
-                for (var i = 0; i < data.albums.items.length; i++) {
-
-
-                    var $newstr = $('<div class="col-6 col-md-4 mb-2 mt-2"><div class="card rounded"><div class="card-image"><img class="img-fluid" src="' + data.albums.items[i].images[0].url + '" alt="Alternate Text" /></div><div class="card-image-overlay m-auto"><span class="card-detail-badge" style="display: table; margin: 4px auto;">' + data.albums.items[i].artists[0].name + '</span><span class="card-detail-badge" style="display: table; margin: 4px auto;">' + data.albums.items[i].release_date + '</span></div><div class="card-body text-center" ><a class="" href="' + data.albums.items[i].external_urls.spotify + '" style="text-decoration: none;" target="_blank"><i class="fa fa-play-circle "></i> ' + data.albums.items[i].name + '</a></div></div></div>');
-
-
-
-                    $(".albums").append($newstr);
+                    // console.log(data, "inside for")
+                    setTimeout(function (i) {
+                        // console.log(data, "inside timeout", i)
+                        var $newstr = $('<div class="col-6 col-md-4 mb-2 mt-2"><div class="card rounded"><div class="card-image"><img class="img-fluid" src="' + data.albums.items[i].images[0].url + '" alt="Alternate Text" /></div><div class="card-image-overlay m-auto"><span class="card-detail-badge" style="display: table; margin: 4px auto;">' + data.albums.items[i].artists[0].name + '</span><span class="card-detail-badge" style="display: table; margin: 4px auto;">' + data.albums.items[i].release_date + '</span></div><div class="card-body text-center" ><a class="" href="' + data.albums.items[i].external_urls.spotify + '" style="text-decoration: none;" target="_blank"><i class="fa fa-play-circle "></i> ' + data.albums.items[i].name + '</a></div></div></div>');
+                        $(".albums").append($newstr);
+                    }, x * 200, x);
                 }
 
             }
