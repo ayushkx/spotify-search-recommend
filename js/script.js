@@ -127,17 +127,16 @@ function home() {
         success: function (data, status, xhr) {
             console.log(data.access_token, " -> new token");
             localStorage.setItem("token", data.access_token);
+            displayAlbum();
+            displayPlaylist();
             // document.getElementsByClassName("content-parent")[0].innerHTML = '  <div class="card"><div class="card-body">Results will appear here! Search now, token refreshed!<br><hr>         <div><button class="btn btn-primary hide" id="refresh">Refresh Token!</button></div></div></div>';
-
-
         },
         error: function (xhr, status, err) {
             console.log("error");
         },
     });
     document.getElementsByClassName("content-parent")[0].innerHTML = '<div class="row"> <div class="col-xs-12 " style="width: 100%;"  > <nav> <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist"> <a class="nav-item nav-link active" id="latest-album-tab" data-toggle="tab" href="#latest-album" role="tab" aria-controls="latest-album" aria-selected="true">Latest Released Albums!</a> <a class="nav-item nav-link" id="featured-playlist-tab" data-toggle="tab" href="#featured-playlist" role="tab" aria-controls="featured-playlist" aria-selected="false">Featured Playlists</a> </div> </nav> <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent"> <div class="tab-pane fade show active" id="latest-album" role="tabpanel" aria-labelledby="latest-album-tab"> </div> <div class="tab-pane fade" id="featured-playlist" role="tabpanel" aria-labelledby="featured-playlist-tab"> </div> </div> </div> </div>';
-    displayAlbum();
-    displayPlaylist();
+
 }
 
 function displayPlaylist() {
