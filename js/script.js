@@ -188,7 +188,7 @@ function displayAlbum() {
 
         },
         error: function (xhr, status, err) {
-            console.log("error", access_token);
+            // console.log("error", access_token);
             alert("Some error occurred, try again after sometime!")
 
         },
