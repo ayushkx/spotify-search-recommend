@@ -12,33 +12,74 @@
     <!-- endbuild -->
 </head>
 
-<body onload="refreshToken()">
+<body onload="home()">
+
+    <navbar class="navbar navbar-expand-md bg-dark">
+
+        <a onclick="home()" href="" class="navbar-brand ml-auto mr-auto">
+            SpotifyRecommendations
+        </a>
+
+        <label type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span style="color: #1DB954;"><i class="fa fa-bars " aria-hidden="true"></i></span>
+        </label>
+
+        <!-- <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav" id="navigation">
+                <a onclick="home()" href="" class="nav-item nav-link active">Home</a>
+                <a href="#" class="nav-item nav-link">Profile</a>
+                <a href="#" class="nav-item nav-link">Messages</a>
+            </div>
+
+        </div> -->
+
+    </navbar>
+
     <header class="container">
-        <div class="row justify-content-center m-4">
+        <div class=" row justify-content-center m-4">
             <div class="col-12">
+
                 <div style="border:1px ridge">
+
+
+
                     <div class="card-body row align-items-center">
-                        <div class="col-auto"><i class="fa fa-search"></i></div>
+
                         <div class="col"><input class="form-control form-control-lg form-control-borderless"
                                 id="searchBar" type="search" placeholder="Search songs with keywords"></div>
-                        <div class="col-auto"><button class="btn btn-success" id="searchBtn">Go!</button></div>
+                        <div><label class="btn btn-success" id="searchBtn">
+                                <div><i class="fa fa-search"></i></div>
+                            </label></div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <div class="container content-parent">
-        <div class="card">
-            <div class="card-body"><br>
-                <p id="mobileView">Search song/album with any keyword (song name, artist name etc!)</p>
-                <hr>
-                Results will appear here!
-                <!-- <div><button class="btn btn-primary" id="refresh">Refresh Token!</button></div> -->
+
+
+    <div class="container content-body">
+
+
+        <div class="container content-parent">
+
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
             </div>
+
         </div>
     </div>
+
+    <footer style="margin-top:10px;" class="footer bg-dark">
+
+        <div class="center" style="color: white;">
+            Made by <a href="#" style="color: #1DB954;">aishwary23</a>
+        </div>
+
+    </footer>
+
     <!-- build:js js/main.js -->
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src=" node_modules/jquery/dist/jquery.min.js">
+    </script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
