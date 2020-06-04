@@ -15,7 +15,7 @@
     var dateString = year + "-" + (month + 1) + "-" + date + "T";
     var timestamp = currentDate.getHours() + "%3A" + currentDate.getMinutes() + "%3A" + currentDate.getSeconds();
     var time = dateString + timestamp;
-    console.log(time)
+    // console.log(time)
 }
 
 function handleKey(e) {
@@ -25,7 +25,7 @@ function handleKey(e) {
 
 function getList() {
 
-    console.log("insdide getList")
+    // console.log("insdide getList")
 
     var input = document.querySelector("input").value;
 
@@ -42,7 +42,7 @@ function getList() {
             url: "https://api.spotify.com/v1/search?q=" + input + "&type=track&limit=50",
             method: "GET",
             success: function (data, status, xhr) {
-                console.log(data);
+                // console.log(data);
 
                 if (data.tracks.items.length > 0) {
                     display(data);
@@ -51,7 +51,7 @@ function getList() {
                     document.getElementsByClassName("content-body")[0].innerHTML = '<div class="d-flex justify-content-center align-items-center" id="main"><h1 class="mr-3 pr-3 align-top border-right inline-block align-content-center">404</h1><div class="inline-block align-middle"><h2 class="font-weight-normal lead" id="desc">No track/album found, try again!</h2></div></div>';
             },
             error: function (xhr, status, err) {
-                console.log("error", access_token);
+                // console.log("error", access_token);
                 alert("Some error occurred, try again after sometime!")
 
             },
@@ -70,7 +70,7 @@ function display(data) {
 
 
     for (var i = 0; i < data.tracks.items.length; i++) {
-        console.log(data.tracks.items[0].album.images[0].url)
+        // console.log(data.tracks.items[0].album.images[0].url)
 
         var $newstr = $('<div class="col-6 col-md-4 mb-2 mt-2"><div class="card rounded"><div class="card-image"><img class="img-fluid" src="' + data.tracks.items[i].album.images[0].url + '" alt="Alternate Text" /></div><div class="card-image-overlay m-auto"><span class="card-detail-badge" style="display: table; margin: 4px auto;">' + data.tracks.items[i].artists[0].name + '</span><span class="card-detail-badge" style="display: table; margin: 4px auto;">' + data.tracks.items[i].album.release_date + '</span></div><div class="card-body text-center"><a class="" href="' + data.tracks.items[i].external_urls.spotify + '" style="text-decoration: none;"><i class="fa fa-play-circle "></i> ' + data.tracks.items[i].name + '</a></div></div></div>');
 
@@ -88,7 +88,7 @@ function refreshToken() {
             refresh_token: refresh_token
 
         }
-        console.log("inside refresh")
+        // console.log("inside refresh")
 
         $.ajax({
             headers: { 'Authorization': 'Basic ' + window.btoa(client_id + ':' + client_secret) },
@@ -96,14 +96,14 @@ function refreshToken() {
             data: dataForAPI,
             method: "POST",
             success: function (data, status, xhr) {
-                console.log(data.access_token, " -> new token");
+                // console.log(data.access_token, " -> new token");
                 localStorage.setItem("token", data.access_token);
                 // document.getElementsByClassName("content-parent")[0].innerHTML = '  <div class="card"><div class="card-body">Results will appear here! Search now, token refreshed!<br><hr>         <div><button class="btn btn-primary hide" id="refresh">Refresh Token!</button></div></div></div>';
 
 
             },
             error: function (xhr, status, err) {
-                console.log("error");
+                // console.log("error");
             },
         });
 
@@ -117,7 +117,7 @@ function home() {
         refresh_token: refresh_token
 
     }
-    console.log("inside refresh")
+    // console.log("inside refresh")
 
     $.ajax({
         headers: { 'Authorization': 'Basic ' + window.btoa(client_id + ':' + client_secret) },
@@ -125,14 +125,14 @@ function home() {
         data: dataForAPI,
         method: "POST",
         success: function (data, status, xhr) {
-            console.log(data.access_token, " -> new token");
+            // console.log(data.access_token, " -> new token");
             localStorage.setItem("token", data.access_token);
             displayAlbum();
             displayPlaylist();
             // document.getElementsByClassName("content-parent")[0].innerHTML = '  <div class="card"><div class="card-body">Results will appear here! Search now, token refreshed!<br><hr>         <div><button class="btn btn-primary hide" id="refresh">Refresh Token!</button></div></div></div>';
         },
         error: function (xhr, status, err) {
-            console.log("error");
+            // console.log("error");
         },
     });
     document.getElementsByClassName("content-parent")[0].innerHTML = '<div class="row"> <div class="col-xs-12 " style="width: 100%;"  > <nav> <div class="nav nav-tabs nav-justified nav-fill" id="nav-tab" role="tablist"> <a class="nav-item nav-link active" id="latest-album-tab" data-toggle="tab" href="#latest-album" role="tab" aria-controls="latest-album" aria-selected="true">Latest Albums!</a> <a class="nav-item nav-link" id="featured-playlist-tab" data-toggle="tab" href="#featured-playlist" role="tab" aria-controls="featured-playlist" aria-selected="false">Featured Playlists!</a> </div> </nav> <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent"> <div class="tab-pane fade show active" id="latest-album" role="tabpanel" aria-labelledby="latest-album-tab"> </div> <div class="tab-pane fade" id="featured-playlist" role="tabpanel" aria-labelledby="featured-playlist-tab"> </div> </div> </div> </div>';
@@ -148,7 +148,7 @@ function displayPlaylist() {
         url: "https://api.spotify.com/v1/browse/featured-playlists?country=IN&timestamp=" + time + "&limit=50",
         method: "GET",
         success: function (data, status, xhr) {
-            console.log(data);
+            // console.log(data);
 
             if (data.playlists.items.length > 0) {
                 document.getElementById("featured-playlist").innerHTML = ' <div class="row content playlists" id="ads"></div>';
@@ -187,7 +187,7 @@ function displayAlbum() {
         url: "https://api.spotify.com/v1/browse/new-releases?country=IN&offset=0&limit=30",
         method: "GET",
         success: function (data, status, xhr) {
-            console.log(data);
+            // console.log(data);
 
             if (data.albums.items.length > 0) {
 
