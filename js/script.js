@@ -147,7 +147,7 @@ function displayPlaylist() {
                 document.getElementById("featured-playlist").innerHTML = ' <div class="row content albums" id="ads"><div class="container">No content, try again later!</div></div>';
         },
         error: function (xhr, status, err) {
-            console.log("error", access_token);
+            // console.log("error", access_token);
             alert("Some error occurred, try again after sometime!")
 
         },
