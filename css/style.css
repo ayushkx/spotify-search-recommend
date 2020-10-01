@@ -12,7 +12,6 @@
 }
 
 
-
 body {
     font-family: 'Montserrat', sans-serif;
 
@@ -26,7 +25,6 @@ body {
 }
 
 
-
 #ads .card-detail-badge {      
         background: #f2d900;
         text-align: center;
@@ -35,6 +33,7 @@ body {
         padding: 5px 10px;
         font-size: 14px;        
     }
+
 #ads .card-detail-badge{
     margin-top: 2px;
 }
@@ -98,23 +97,22 @@ body {
     margin: 0px auto!important;
     display: block!important;
   }
-  nav > .nav.nav-tabs{
 
+  nav > .nav.nav-tabs{
     border: none;
-      color:#fff;
-      background:#272e38;
-      border-radius:0;
-  
+    color:#fff;
+    background:#272e38;
+    border-radius:0; 
   }
+
   nav > div a.nav-item.nav-link,
   nav > div a.nav-item.nav-link.active
   {
     border: none;
-      padding: 18px 25px;
-      color:#fff;
-      background:#272e38;
-      border-radius:0;
-      
+    padding: 18px 25px;
+    color:#fff;
+    background:#272e38;
+    border-radius:0;   
   }
   
   nav > div a.nav-item.nav-link.active:after
@@ -127,7 +125,7 @@ body {
     border-top-color: #1DB954 ;
   }
   .tab-content{
-    background: #fdfdfd;
+      background: #fdfdfd;
       line-height: 25px;
       border: 1px solid #ddd;
       border-top:5px solid #1DB954;
@@ -139,7 +137,7 @@ body {
   nav > div a.nav-item.nav-link:focus,
   nav > div a.active
   {
-    border: none;
+      border: none;
       background: #1DB954!important;
       color:#fff!important;
       border-radius:0!important;
@@ -165,9 +163,11 @@ body {
   #navigation a.active,.navbar-brand{
     color:rgb(44, 207, 101)!important ;
   }
+
   #navigation a{
     color:rgb(1, 155, 55)!important ;
   }
+
   .center {
     display: flex;
     justify-content: center;
@@ -175,6 +175,7 @@ body {
     min-height: 80px;
     /* border: 3px solid green;  */
   }
+
   @media (max-width: 767px) {
     .nav-tabs.nav-justified > div {
       float: left;
